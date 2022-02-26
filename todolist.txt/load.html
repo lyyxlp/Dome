@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.all{
+			width:100%;
+			height:810px;
+			background-color: hotpink;
+			display: flex;
+		}
+		.card{
+			width:400px;
+			height:500px;
+			margin:150px auto;
+			background-color: skyblue;
+			border-radius: 10%;
+		}
+		.cardload{
+			width:100%;
+			height:100px;
+			text-align: center;
+			margin-top: 20px;
+			line-height:100px ;
+			font-size: 25px;
+			color:white;
+		}
+		.btn button{
+			width:200px;
+			height:30px;
+			font-size: 20px;
+			margin-left: 100px;
+			margin-top:100px;
+			background-color: cadetblue;
+			border-radius: 10%;
+			text-align: center;
+			line-height: 30px;
+			outline: none;
+			border: none;
+			cursor:pointer;
+		}
+		.btn button:active{
+			background-color: lightblue;
+		}
+		.warn{
+			color:red;
+			padding: 3px;
+			margin-left: 150px;
+			margin-top: 10px;
+		}
+		#warn{
+			display: none;
+		}
+		</style>
+		<script>
+		
+		 function login(){
+			 var username=document.getElementById("username").value;
+			 var pwd=document.getElementById("pwd").value;
+			 var warn=document.getElementById("warn");
+			 if(username==""){
+				 warn.style.display="block";
+				 warn.innerText="用户名不能为空";
+				 warn.style.colo="red";
+				 return;
+			 }
+			 if(pwd==""){
+			 		 warn.style.display="block";
+			 		 warn.innerText="密码不能为空";
+					 warn.style.colo="red";
+			 		 return;
+			 }
+			 if(username=="abc"&& pwd=="123"){
+			 warn.style.display="block";
+			 warn.innerText="登陆成功";
+			 warn.style.color="green";
+			 setTimeout(function(){
+				 window.location.href="todolist.html";
+			 },2000 )
+			 }else{
+				 warn.innerText="密码或用户名称错误";
+				 warn.style.colo="red";
+			 }
+		 }
+		
+		</script>
+	</head>
+	<body>
+		<div class="all">
+			<div class="card">
+				<div class="cardload"><strong>登录界面</strong></div>
+				<div class="username">
+					<i class="user"></i><input type="text" style="width:300px ;height:30px;margin-left: 20px;border: none;margin-top: 50px;border-radius: 10%;" id="username" placeholder="请输入用户名">
+				</div>
+				<div class="userpwd">
+					<i class="pwd"></i><input type="password" style="width:300px ;height:30px;margin-left: 20px;margin-top:50px;border:none;border-radius: 10%;" id="pwd" placeholder="请输入用户密码">
+				</div>
+				<div class="btn">
+					<button class="userbtn" onclick="login()">登录</button>
+				</div>
+				<div class="warn" id="warn">
+					<label>提示</label>
+					</div>
+			</div>
+		</div>
+	</body>
+	
+</html>
